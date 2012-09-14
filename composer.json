@@ -1,0 +1,26 @@
+{
+    "name": "atukai/at-php-settings",
+    "description": "A php settings module for ZF2.",
+    "type": "library",
+    "keywords": [
+        "atukai, at, php settings"
+    ],
+    "homepage": "https://github.com/atukai/at-php-settings",
+    "authors": [
+        {
+            "name": "Alexander Tukai",
+            "email": "atukai@gmail.com"
+        }
+    ],
+    "require": {
+        "zendframework/zendframework": "2.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "AtPhpSettings": "src/"
+        },
+        "classmap": [
+            "./Module.php"
+        ]
+    }
+}
