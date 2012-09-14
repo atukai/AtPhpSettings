@@ -1,2 +1,2 @@
-at-php-settings
+### A php settings module for ZF2.
 ===============
