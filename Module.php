@@ -15,7 +15,7 @@ class Module
     {
         $app         = $e->getParam('application');
         $config      = $app->getConfig();
-        $phpSettings = $config['phpsettings'];
+        $phpSettings = $config['php_settings'];
 
         if ($phpSettings) {
             foreach($phpSettings as $key => $value) {
