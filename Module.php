@@ -7,7 +7,7 @@ use Zend\Mvc\MvcEvent;
 class Module
 {
     /**
-     * Configure PHP ini settings on the bootstrap event
+     * Configure PHP ini settings
      *
      * @param \Zend\Mvc\MvcEvent $e
      */

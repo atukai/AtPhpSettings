@@ -1,9 +1,9 @@
 {
     "name": "atukai/at-php-settings",
-    "description": "A php settings module for ZF2.",
+    "description": "A ZF2 module for managing php settings.",
     "type": "library",
     "keywords": [
-        "php settings, zf2, atukai, at"
+        "php, settings, atukai, at, zf2"
     ],
     "homepage": "https://github.com/atukai/at-php-settings",
     "authors": [
