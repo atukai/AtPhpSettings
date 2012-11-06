@@ -3,7 +3,7 @@
     "description": "A ZF2 module for managing php settings.",
     "type": "library",
     "keywords": [
-        "php, settings, atukai, at, zf2"
+        "php", "settings", "AtPhpSettings", "atukai", "at", "zf2"
     ],
     "homepage": "https://github.com/atukai/at-php-settings",
     "authors": [
