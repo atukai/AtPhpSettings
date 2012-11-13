@@ -17,7 +17,7 @@
     },
     "autoload": {
         "psr-0": {
-            "AtPhpSettings": "src/"
+            "AtPhpSettings\\": "src/"
         },
         "classmap": [
             "./Module.php"
