@@ -1,5 +1,7 @@
 # AtPhpSettings
 
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/atukai/atphpsettings/trend.png)](https://bitdeli.com/free "Bitdeli Badge")[![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/atukai/AtPhpSettings/badges/quality-score.png?s=08fae8e160eae4fc27ed99d6331c6cba6a24a406)](https://scrutinizer-ci.com/g/atukai/AtPhpSettings/)
+
 Version 1.1.0
 
 A ZF2 module for configuring a php settings.
