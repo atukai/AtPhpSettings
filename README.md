@@ -1,6 +1,6 @@
 # AtPhpSettings
 
-Version 1.0.0
+Version 1.1.0
 
 A ZF2 module for configuring a php settings.
 
@@ -8,6 +8,10 @@ A ZF2 module for configuring a php settings.
 
 * [Zend Framework 2](https://github.com/zendframework/zf2)
 
+## Features
+
+* Global, per controller, and per route configuration of php.ini settings
+* Zend Developer Tools Collector
 
 ## Installation
 
@@ -23,6 +27,19 @@ To configure the php settings as you required, add the following to your config/
         'display_errors'             => true,
         'max_execution_time'         => 30,
         'date.timezone'              => 'UTC',
+
+        'controllers' => array(
+		    'Application\Controller\Index' => array(
+			    'memory_limit' => '64M',
+		    ),
+	    ),
+
+	   'routes' => array(
+		    'home' => array(
+			    'memory_limit'       => '32M',
+			    'max_execution_time' => '60',
+		    ),
+	   ),
     )
 
 Add additional configuration keys as needed.
