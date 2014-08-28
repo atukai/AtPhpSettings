@@ -44,9 +44,8 @@ class PhpSettingsCollector extends AbstractCollector
 
 
     /**
-     * Collect guards
+     * Collect php settings
      *
-     * @param  array $guards
      * @return void
      */
     private function collectPhpSettings()
