@@ -1,4 +1,4 @@
-# AtPhpSettings [1.1.0]
+# AtPhpSettings [1.1.1-dev]
 
 A ZF2 module for configuring a php settings.
 
