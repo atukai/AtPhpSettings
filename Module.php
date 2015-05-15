@@ -7,6 +7,20 @@ use Zend\Mvc\MvcEvent;
 class Module
 {
     /**
+     * @return array
+     */
+    public function getAutoloaderConfig()
+    {
+        return array(
+            'Zend\Loader\StandardAutoloader' => array(
+                'namespaces' => array(
+                    __NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__,
+                ),
+            ),
+        );
+    }
+
+    /**
      * Configure PHP ini settings
      *
      * @param \Zend\Mvc\MvcEvent $e
@@ -19,7 +33,7 @@ class Module
 
         if ($phpSettings) {
             $events = $application->getEventManager();
-            $events->attach('route', array($this, 'applyPhpSettings'));
+            $events->attach(MvcEvent::EVENT_ROUTE, array($this, 'applyPhpSettings'));
         }
     }
 
@@ -103,20 +117,6 @@ class Module
 
                 // Route-specific php settings
                 'routes' => array(),
-            ),
-        );
-    }
-
-    /**
-     * @return array
-     */
-    public function getAutoloaderConfig()
-    {
-        return array(
-            'Zend\Loader\StandardAutoloader' => array(
-                'namespaces' => array(
-                    __NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__,
-                ),
             ),
         );
     }
