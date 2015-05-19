@@ -35,10 +35,13 @@ class Module
         if ($phpSettings) {
             /** @var EventManager $events */
             $events = $application->getEventManager();
-            $events->attach(MvcEvent::EVENT_ROUTE, [$this, 'applyPhpSettings'], 999999);
+            $events->attach(MvcEvent::EVENT_ROUTE, [$this, 'applyPhpSettings']);
         }
     }
 
+    /**
+     * @param MvcEvent $e
+     */
     public function applyPhpSettings(MvcEvent $e)
     {
         $application = $e->getApplication();
@@ -48,23 +51,22 @@ class Module
         $phpSettings = $config['php_settings'];
 
         // Check for controller-specific php settings
-        if (isset($phpSettings['controllers']) && is_array($phpSettings['controllers'])) {
+        if (isset($phpSettings['controllers']) && is_array($phpSettings['controllers']) && !empty($phpSettings['controllers'])) {
             $controller = $matches->getParam('controller');
-            $controllerPhpSettings = $phpSettings['controllers'];
+            $controllerSettings = $phpSettings['controllers'];
 
-
-            if (isset($controllerPhpSettings[$controller]) && is_array($controllerPhpSettings[$controller])) {
-                $phpSettings = array_merge($phpSettings, $controllerPhpSettings[$controller]);
+            if (isset($controllerSettings[$controller]) && is_array($controllerSettings[$controller])) {
+                $phpSettings = array_merge($phpSettings, $controllerSettings[$controller]);
             }
         }
 
         // Check for route-specific php settings
-        if (isset($phpSettings['routes']) && is_array($phpSettings['routes'])) {
+        if (isset($phpSettings['routes']) && is_array($phpSettings['routes']) && !empty($phpSettings['routes'])) {
             $route = $matches->getMatchedRouteName();
-            $routePhpSettings = $phpSettings['routes'];
+            $routeSettings = $phpSettings['routes'];
 
-            if (isset($routePhpSettings[$route]) && is_array($routePhpSettings[$route])) {
-                $phpSettings = array_merge($phpSettings, $routePhpSettings[$route]);
+            if (isset($routeSettings[$route]) && is_array($routeSettings[$route])) {
+                $phpSettings = array_merge($phpSettings, $routeSettings[$route]);
             }
         }
 
@@ -82,32 +84,32 @@ class Module
     public function getConfig()
     {
         return [
-            'service_manager' => array(
-                'invokables' => array(
+            'service_manager' => [
+                'invokables' => [
                     'AtPhpSettings\Collector\PhpSettingsCollector' => 'AtPhpSettings\Collector\PhpSettingsCollector',
-                ),
-            ),
+                ],
+            ],
 
-            'view_manager' => array(
-                'template_map' => array(
+            'view_manager' => [
+                'template_map' => [
                     'zend-developer-tools/toolbar/at-php-settings' => __DIR__ . '/view/zend-developer-tools/toolbar/at-php-settings.phtml'
-                )
-            ),
+                ]
+            ],
 
-            'zenddevelopertools' => array(
-                'profiler' => array(
-                    'collectors' => array(
+            'zenddevelopertools' => [
+                'profiler' => [
+                    'collectors' => [
                         'at_php_settings' => 'AtPhpSettings\Collector\PhpSettingsCollector',
-                    ),
-                ),
-                'toolbar' => array(
-                    'entries' => array(
+                    ],
+                ],
+                'toolbar' => [
+                    'entries' => [
                         'at_php_settings' => 'zend-developer-tools/toolbar/at-php-settings',
-                    ),
-                ),
-            ),
+                    ],
+                ],
+            ],
 
-            'php_settings' => array(
+            'php_settings' => [
                 // Global php settings
                 'display_startup_errors' => false,
                 'display_errors'         => false,
@@ -119,7 +121,7 @@ class Module
 
                 // Route-specific php settings
                 'routes' => [],
-            ),
+            ],
         ];
     }
 }
