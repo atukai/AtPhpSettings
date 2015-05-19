@@ -1,4 +1,4 @@
-# AtPhpSettings [1.1.1-dev]
+# AtPhpSettings [1.2.0-dev]
 
 A ZF2 module for configuring a php settings.
 
@@ -7,6 +7,7 @@ A ZF2 module for configuring a php settings.
 
 ## Requirements
 
+* [PHP 5.4+](http://php.net)
 * [Zend Framework 2](https://github.com/zendframework/zf2)
 
 ## Features
@@ -23,24 +24,23 @@ A ZF2 module for configuring a php settings.
 
 To configure the php settings as you required, add the following to your config/autoload/global.php file:
 
-    'php_settings' => array(
-        'display_startup_errors'     => false,
-        'display_errors'             => true,
-        'max_execution_time'         => 30,
-        'date.timezone'              => 'UTC',
+```PHP
+'php_settings' => [
+    'display_startup_errors'     => false,
+    'display_errors'             => true,
+    'max_execution_time'         => 30,
+    'date.timezone'              => 'UTC',
 
-        'controllers' => array(
-		    'Application\Controller\Index' => array(
-			    'memory_limit' => '64M',
-		    ),
-	    ),
+    'controllers' => [
+        'Application\Controller\Index' => [
+            'memory_limit' => '64M',
+        ],
+    ],
 
-	   'routes' => array(
-		    'home' => array(
-			    'memory_limit'       => '32M',
-			    'max_execution_time' => '60',
-		    ),
-	   ),
-    )
-
-Add additional configuration keys as needed.
+    'routes' => [
+        'home' => [
+            'memory_limit'       => '32M',
+            'max_execution_time' => '60',
+        ],
+    ],
+]

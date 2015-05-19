@@ -2,6 +2,7 @@
 
 namespace AtPhpSettings;
 
+use Zend\EventManager\EventManager;
 use Zend\Mvc\MvcEvent;
 
 class Module
@@ -12,11 +13,11 @@ class Module
     public function getAutoloaderConfig()
     {
         return array(
-            'Zend\Loader\StandardAutoloader' => array(
-                'namespaces' => array(
+            'Zend\Loader\StandardAutoloader' => [
+                'namespaces' => [
                     __NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__,
-                ),
-            ),
+                ],
+            ],
         );
     }
 
@@ -32,8 +33,9 @@ class Module
         $phpSettings = $config['php_settings'];
 
         if ($phpSettings) {
+            /** @var EventManager $events */
             $events = $application->getEventManager();
-            $events->attach(MvcEvent::EVENT_ROUTE, array($this, 'applyPhpSettings'));
+            $events->attach(MvcEvent::EVENT_ROUTE, [$this, 'applyPhpSettings'], 999999);
         }
     }
 
@@ -79,7 +81,7 @@ class Module
      */
     public function getConfig()
     {
-        return array(
+        return [
             'service_manager' => array(
                 'invokables' => array(
                     'AtPhpSettings\Collector\PhpSettingsCollector' => 'AtPhpSettings\Collector\PhpSettingsCollector',
@@ -113,11 +115,11 @@ class Module
                 'date.timezone'          => 'UTC',
 
                 // Controller-specific php settings
-                'controllers' => array(),
+                'controllers' => [],
 
                 // Route-specific php settings
-                'routes' => array(),
+                'routes' => [],
             ),
-        );
+        ];
     }
 }
