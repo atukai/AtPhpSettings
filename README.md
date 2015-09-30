@@ -1,4 +1,4 @@
-# AtPhpSettings [1.2.0-dev]
+# AtPhpSettings
 
 A ZF2 module for configuring a php settings.
 
@@ -8,7 +8,8 @@ A ZF2 module for configuring a php settings.
 ## Requirements
 
 * [PHP 5.4+](http://php.net)
-* [Zend Framework 2](https://github.com/zendframework/zf2)
+* [Zend MVC](https://github.com/zendframework/zend-mvc)
+* [Zend EventManager](https://github.com/zendframework/zend-eventmanager)
 
 ## Features
 

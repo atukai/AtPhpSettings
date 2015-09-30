@@ -3,7 +3,7 @@
     "description": "A ZF2 module for managing php settings.",
     "type": "library",
     "keywords": [
-        "php", "settings", "AtPhpSettings", "atukai", "at", "zf2"
+        "php", "settings", "AtPhpSettings", "atukai", "zf2"
     ],
     "homepage": "https://github.com/atukai/AtPhpSettings",
     "authors": [
@@ -13,7 +13,8 @@
         }
     ],
     "require": {
-        "zendframework/zendframework": "2.*"
+        "zendframework/zend-mvc": "2.*",
+        "zendframework/zend-eventmanager": "2.*"
     },
     "autoload": {
         "psr-0": {
